@@ -1,35 +1,57 @@
+body {
+    margin: 20px;
+}
+
 .jumbotron {
     background-color: rgb(50, 137, 192);
 }
 
-h1 {
+.display-3 {
     font-weight: bold;
 }
 
-table {
-    margin-left: 20px;
-    margin-right: 20px;
+#table-title {
+    background-color: rgb(50, 137, 192);
+    font-weight: bold;
+    margin-bottom: 0px;
+    padding-left: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .row-color {
     background-color: rgb(50, 137, 192);
-    opacity: .5;
+}
+
+.table {
+    margin-bottom: 30px;
 }
 
 .total {
-    padding-left: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 .form-title {
-    border-bottom: 1px solid #ced4da;
     background-color: rgb(50, 137, 192);
-    opacity: .5;
-    padding: 0px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-weight: bold;
+    padding-left: 20px;
+
 }
 
 .panel {
-    /* padding: 10px; */
     padding-top: 0px;
     border: 1px solid #ced4da;
+}
+
+.form-group {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+#train-submit {
+    background-color: rgb(50, 137, 192);
+    margin-left: 20px;
+    color: black;   
 }

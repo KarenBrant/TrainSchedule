@@ -1,37 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Train Schedule</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/style.css">
-    <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
-<script>
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyA3RyTSCqfdtkimwChXEyWuxw2K9ci_Iv4",
-    authDomain: "train-schedule-bbd13.firebaseapp.com",
-    databaseURL: "https://train-schedule-bbd13.firebaseio.com",
-    projectId: "train-schedule-bbd13",
-    storageBucket: "train-schedule-bbd13.appspot.com",
-    messagingSenderId: "323601000479"
-  };
-  firebase.initializeApp(config);
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Train Schedule</title>
+  <!-- Bootstrap and css links -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Firebase script -->
+  <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
 
-</script>
-<script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyA3RyTSCqfdtkimwChXEyWuxw2K9ci_Iv4",
+      authDomain: "train-schedule-bbd13.firebaseapp.com",
+      databaseURL: "https://train-schedule-bbd13.firebaseio.com",
+      projectId: "train-schedule-bbd13",
+      storageBucket: "train-schedule-bbd13.appspot.com",
+      messagingSenderId: "323601000479"
+    };
+    firebase.initializeApp(config);
+  </script>
+
+  <!-- Moment script -->
+  <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
 </head>
 <body>
-    <div class="jumbotron text-center" id="gif-train">
-        <h1 class="display-3">Train Schedule</h1>
-        <img src="images/train-gif.gif" alt="Train gif">
-        <!-- <div id="gif-train"></div> -->
+  <div class="jumbotron text-center" id="gif-train">
+    <h1 class="display-3">Train Schedule</h1>
+    <img src="images/train-gif.gif" alt="Train gif">
   </div>
 
+  <!-- Table for current train schedule -->
   <div class="table-responsive">
     <table class="table table-bordered">
+      <h5 id="table-title">Current Train Schedule</h5>
       <thead>
         <tr>
           <th class="text-center row-color" scope="col">Train Name</th>
@@ -41,43 +46,44 @@
           <th class="text-center row-color" scope="col">Minutes Away</th>
         </tr>
       </thead>
-      <tbody>
-        
+      <!-- Body of table created in javascript file -->
+      <tbody> 
       </tbody>
     </table>
   </div>
-<div class="row total">
-        <div class="col-sm-8 col-sm-offset-2">
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <h3 class="form-title">Add Train</h3>
-            </div>
-            <div class="panel-body">
-              <form>
-                <div class="form-group">
-                  <label for="">Train Name</label>
-                  <input class="form-control" id="train-name" type="text">
-                </div>
-                <div class="form-group">
-                  <label for="">Destination</label>
-                  <input class="form-control" id="destination" type="text">
-                </div>
-                <div class="form-group">
-                        <label for="">First Train Time (HH:mm - military time)</label>
-                        <input class="form-control" id="train-time" type="time">
-                </div>
-                <div class="form-group">
-                    <label for="">Frequency (min)</label>
-                    <input class="form-control" id="train-freq" type="number">
-                    </div>
-                <button class="btn btn-primary" id="train-submit" type="submit">Submit</button>
-              </form>
-            </div>
-          </div>
+
+  <!-- Form for entering trains -->
+  <div class="row total">
+    <div class="col-sm">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h5 class="form-title">Add Train</h5>
         </div>
-  
+        <div class="panel-body">
+          <form>
+            <div class="form-group">
+              <label for="train-name">Train Name</label>
+              <input class="form-control" id="train-name" type="text">
+            </div>
+            <div class="form-group">
+              <label for="destination">Destination</label>
+              <input class="form-control" id="destination" type="text">
+            </div>
+            <div class="form-group">
+              <label for="train-time">First Train Time (HH:mm - military time)</label>
+              <input class="form-control" id="train-time" type="time">
+            </div>
+            <div class="form-group">
+              <label for="train-freq">Frequency (min)</label>
+              <input class="form-control" id="train-freq" type="number">
+            </div>
+            <button class="btn btn-primary" id="train-submit" type="submit">Submit</button>
+          </form>
+        </div>
       </div>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-      <script src="javascript/train.js"></script>
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="javascript/train.js"></script>
 </body>
 </html>
